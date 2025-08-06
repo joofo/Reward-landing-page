@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch & Unlock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .video-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .video-thumbnail {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+    .fake-play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: white;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .ad-banner {
+      background: #222;
+      padding: 15px;
+      margin: 10px auto;
+      width: 100%;
+      max-width: 600px;
+      border: 2px dashed #444;
+    }
+    #reveal-btn {
+      padding: 15px 25px;
+      font-size: 18px;
+      background: crimson;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #reward-code {
+      font-size: 20px;
+      color: lime;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>  <div class="ad-banner">[Native Ad 1]</div>  <div class="video-wrapper">
+    <img src="https://img.youtube.com/vi/rzvl2hW8hvA/0.jpg" class="video-thumbnail" id="thumbnail">
+    <div class="fake-play-button" onclick="handleFirstClick()">▶</div>
+  </div>  <div class="ad-banner">[Native Ad 2]</div>
+  <div class="ad-banner">[Native Ad 3]</div><button id="reveal-btn" onclick="handleRevealClick()">Reveal Code</button>
+
+  <div class="ad-banner">[Native Ad 4]</div>  <div id="reward-code">Your Code: 9X7YQ-PROMO2025</div>  <script>
+    let clickCount = 0;
+    let timerStarted = false;
+    let timeLeft = 180;
+    let interval;
+
+    function handleFirstClick() {
+      window.open("https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1", "_blank");
+      document.querySelector('.fake-play-button').style.display = 'none';
+      const iframe = document.createElement('iframe');
+      iframe.width = "100%";
+      iframe.height = "315";
+      iframe.src = "https://www.youtube.com/embed/rzvl2hW8hvA?autoplay=1";
+      iframe.frameBorder = "0";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      document.querySelector('.video-wrapper').innerHTML = '';
+      document.querySelector('.video-wrapper').appendChild(iframe);
+      if (!timerStarted) startTimer();
+    }
+
+    function startTimer() {
+      timerStarted = true;
+      interval = setInterval(() => {
+        timeLeft--;
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+
+    function handleRevealClick() {
+      clickCount++;
+      if (clickCount <= 5) {
+        window.open("https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1", "_blank");
+      } else {
+        if (timeLeft <= 0) {
+          document.getElementById("reward-code").style.display = "block";
+        } else {
+          alert("Please watch the video for 3 minutes before unlocking the code.");
+        }
+      }
+    }
+  </script></body>
+</html>
