@@ -1,150 +1,171 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch & Unlock</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watch and Unlock Code</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
       text-align: center;
-      padding: 20px;
+      padding: 10px;
+      background: #fff;
     }
-    .video-wrapper {
+    .video-container {
       position: relative;
       display: inline-block;
-      margin-bottom: 20px;
+      margin-top: 10px;
     }
-    .video-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-    }
-    .fake-play-button {
+    .fake-play-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 60px;
-      color: white;
-      background: rgba(0,0,0,0.6);
-      border-radius: 50%;
-      padding: 10px 20px;
+      font-size: 50px;
+      color: red;
       cursor: pointer;
+      z-index: 2;
     }
-    .ad-banner {
-      background: #222;
-      padding: 15px;
-      margin: 10px auto;
+    iframe {
       width: 100%;
       max-width: 600px;
-      border: 2px dashed #444;
+      height: 340px;
     }
-    #reveal-btn {
-      padding: 15px 25px;
-      font-size: 18px;
-      background: crimson;
-      border: none;
-      border-radius: 8px;
+    .ads {
+      margin: 15px auto;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #007bff;
       color: white;
+      border-radius: 6px;
+      font-size: 18px;
       cursor: pointer;
-      margin-top: 20px;
+      text-decoration: none;
     }
-    #reward-code {
-      font-size: 20px;
-      color: lime;
+    #codeBox {
       margin-top: 20px;
+      font-size: 20px;
+      color: green;
       display: none;
+    }
+    #warning {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
     }
   </style>
 </head>
-<body>  <div class="ad-banner"><script type="text/javascript">
-	atOptions = {
-		'key' : '657dc637906c39e1c4c2a1ca6f9a5cf3',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/657dc637906c39e1c4c2a1ca6f9a5cf3/invoke.js"></script></div>  <div class="video-wrapper">
-    <img src="https://img.youtube.com/vi/rzvl2hW8hvA/0.jpg" class="video-thumbnail" id="thumbnail">
-    <div class="fake-play-button" onclick="handleFirstClick()">▶</div>
-  </div>  <div class="ad-banner"><script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script></div>
-  <div class="ad-banner"><script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script></div><button id="reveal-btn" onclick="handleRevealClick()">Reveal Code</button>
+<body>
 
-  <div class="ad-banner"><script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script></div>  <div id="reward-code">Your Code: 9X7YQ-PROMO2025</div>  <script>
+  <!-- Top Banner -->
+  <div class="ads">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '657dc637906c39e1c4c2a1ca6f9a5cf3',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/657dc637906c39e1c4c2a1ca6f9a5cf3/invoke.js"></script>
+  </div>
+
+  <!-- Video -->
+  <h3>Watch This Video to Unlock the Code</h3>
+  <div class="video-container">
+    <div class="fake-play-btn" onclick="redirectOnFirstClick()">▶</div>
+    <iframe id="videoFrame" src="https://www.youtube.com/embed/rzvl2hW8hvA?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Banner 1 -->
+  <div class="ads">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '00e249d3ee59a09383e0915f0c6f83d1',
+        'format': 'iframe',
+        'height': 250,
+        'width': 300,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
+  </div>
+
+  <!-- Banner 2 -->
+  <div class="ads">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '00e249d3ee59a09383e0915f0c6f83d1',
+        'format': 'iframe',
+        'height': 250,
+        'width': 300,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
+  </div>
+
+  <!-- Unlock Button -->
+  <div>
+    <div class="button" onclick="handleUnlock()">Reveal Code</div>
+    <div id="codeBox">Your Code: <strong>AI-50DAY</strong></div>
+    <div id="warning"></div>
+  </div>
+
+  <!-- Bottom Banner -->
+  <div class="ads">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '00e249d3ee59a09383e0915f0c6f83d1',
+        'format': 'iframe',
+        'height': 250,
+        'width': 300,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
+  </div>
+
+  <script>
     let clickCount = 0;
-    let timerStarted = false;
-    let timeLeft = 180;
-    let interval;
+    let hasWatchedEnough = false;
+    let firstClick = false;
 
-    function handleFirstClick() {
-      window.open("https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1", "_blank");
-      document.querySelector('.fake-play-button').style.display = 'none';
-      const iframe = document.createElement('iframe');
-      iframe.width = "100%";
-      iframe.height = "315";
-      iframe.src = "https://www.youtube.com/embed/rzvl2hW8hvA?autoplay=1";
-      iframe.frameBorder = "0";
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      document.querySelector('.video-wrapper').innerHTML = '';
-      document.querySelector('.video-wrapper').appendChild(iframe);
-      if (!timerStarted) startTimer();
+    function redirectOnFirstClick() {
+      if (!firstClick) {
+        window.open("https://your-direct-link.com", "_blank");
+        firstClick = true;
+      }
     }
 
-    function startTimer() {
-      timerStarted = true;
-      interval = setInterval(() => {
-        timeLeft--;
-        if (timeLeft <= 0) {
-          clearInterval(interval);
-        }
-      }, 1000);
-    }
+    const video = document.getElementById("videoFrame");
 
-    function handleRevealClick() {
+    window.addEventListener("message", (event) => {
+      if (event.data === '{"event":"infoDelivery","info":{"playerState":1}}') {
+        setTimeout(() => {
+          hasWatchedEnough = true;
+        }, 180000); // 3 minutes = 180000 ms
+      }
+    });
+
+    function handleUnlock() {
       clickCount++;
-      if (clickCount <= 5) {
-        window.open("https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1", "_blank");
+      if ((hasWatchedEnough && clickCount >= 3) || (!hasWatchedEnough && clickCount >= 6)) {
+        document.getElementById("codeBox").style.display = "block";
+        document.getElementById("warning").innerText = "";
       } else {
-        if (timeLeft <= 0) {
-          document.getElementById("reward-code").style.display = "block";
+        if (!hasWatchedEnough && clickCount === 6) {
+          document.getElementById("warning").innerText = "Please watch the video for at least 3 minutes to unlock the code.";
         } else {
-          alert("Please watch the video for 3 minutes before unlocking the code.");
+          window.open("https://your-direct-link.com", "_blank");
         }
       }
     }
-  </script></body>
-
+  </script>
+</body>
 </html>
 
