@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch & Unlock</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }
-    .banner { margin: 10px auto; max-width: 728px; }
-    .video-container { position: relative; display: inline-block; cursor: pointer; max-width: 560px; }
-    .video-thumbnail { width: 100%; }
-    .play-button {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px; height: 80px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_social_white_squircle_%282017%29.svg') no-repeat center center;
-      background-size: contain;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Video to Unlock Code</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        margin: 0;
+        font-size: 18px;
+    }
+    video {
+        width: 90%;
+        max-width: 600px;
+        margin: 10px auto;
+        display: block;
+        border: 3px solid #ccc;
+        border-radius: 8px;
+    }
+    .ads {
+        margin: 15px 0;
     }
     .unlock-btn {
-      background: red; color: white; padding: 12px 20px; border: none;
-      cursor: pointer; margin-top: 15px; font-size: 18px;
+        padding: 12px 20px;
+        font-size: 16px;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 20px 0;
     }
-  </style>
+    .code-box {
+        font-size: 20px;
+        font-weight: bold;
+        color: green;
+        margin-top: 20px;
+    }
+    .warning {
+        color: red;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+</style>
 </head>
 <body>
 
-  <!-- Top Banner -->
-  <div class="banner">
-    <!-- Replace with your ad banner code -->
-    <script type="text/javascript">
+<!-- Top Banner -->
+<div class="ads">
+<script type="text/javascript">
 	atOptions = {
 		'key' : '657dc637906c39e1c4c2a1ca6f9a5cf3',
 		'format' : 'iframe',
@@ -37,15 +66,17 @@
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/657dc637906c39e1c4c2a1ca6f9a5cf3/invoke.js"></script>
-  </div>
+</div>
 
-  <h2>Watch This Video to Unlock the Code</h2>
+<h2>Watch This Video to Unlock the Code</h2>
+<video id="promoVideo" controls poster="">
+    <source src="https://www.dropbox.com/scl/fi/xvgo2nyemh4c7xe2arjt3/videoplayback-0.mp4?rlkey=w3brx7ykc0rxbug4fng3p668j&st=o5qj0bph&dl=1" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
 
-  <div id="videoArea" class="video-container"></div>
-
-  <!-- 3 Banners under video -->
-  <div class="banner">
-    <script type="text/javascript">
+<!-- Three Banners Below Video -->
+<div class="ads">
+<script type="text/javascript">
 	atOptions = {
 		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
 		'format' : 'iframe',
@@ -55,9 +86,10 @@
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-  </div>
-  <div class="banner">
-    <script type="text/javascript">
+</div>
+
+<div class="ads">
+<script type="text/javascript">
 	atOptions = {
 		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
 		'format' : 'iframe',
@@ -67,9 +99,10 @@
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-  </div>
-  <div class="banner">
-    <script type="text/javascript">
+</div>
+
+<div class="ads">
+<script type="text/javascript">
 	atOptions = {
 		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
 		'format' : 'iframe',
@@ -79,64 +112,66 @@
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-  </div>
+</div>
 
-  <button id="unlockBtn" class="unlock-btn">UNLOCK CODE</button>
+<!-- Unlock Button -->
+<button class="unlock-btn" id="unlockBtn">UNLOCK CODE</button>
 
-  <script>
-    const directLink = "https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1";
-    const videoId = "rzvl2hW8hvA"; // YouTube video ID
-    const videoArea = document.getElementById("videoArea");
-    const unlockBtn = document.getElementById("unlockBtn");
+<!-- Code Display -->
+<div class="code-box" id="codeBox" style="display:none;">
+    ✅ Your Code: <span style="color:blue;">ABC123XYZ</span>
+</div>
 
-    let attempts = parseInt(localStorage.getItem("attempts") || "0");
-    let watched = localStorage.getItem("watched") === "true";
+<div class="warning" id="warningMsg" style="display:none;">
+    ⚠ You must watch the video for at least 2 minutes to unlock the code!
+</div>
 
-    function showThumbnail() {
-      videoArea.innerHTML = `
-        <img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" class="video-thumbnail">
-        <div class="play-button"></div>
-      `;
-      videoArea.onclick = () => {
-        window.location.href = directLink;
-        localStorage.setItem("firstClick", "true");
-      };
+<script>
+let video = document.getElementById("promoVideo");
+let unlockBtn = document.getElementById("unlockBtn");
+let codeBox = document.getElementById("codeBox");
+let warningMsg = document.getElementById("warningMsg");
+
+let adLink = "https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1";
+let hasWatched2Min = false;
+let unlockClicks = 0;
+let videoClicks = 0;
+
+// Track first click on video
+video.addEventListener("play", function(e) {
+    if (videoClicks === 0) {
+        window.open(adLink, "_blank");
+        video.pause();
     }
+    videoClicks++;
+});
 
-    function showVideoPlayer() {
-      videoArea.innerHTML = `
-        <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-      `;
-      startWatchTimer();
+// Track 2 minutes watch time
+video.addEventListener("timeupdate", function() {
+    if (video.currentTime >= 120) {
+        hasWatched2Min = true;
     }
+});
 
-    function startWatchTimer() {
-      setTimeout(() => {
-        watched = true;
-        localStorage.setItem("watched", "true");
-      }, 120000); // 2 minutes
-    }
-
-    unlockBtn.onclick = () => {
-      attempts++;
-      localStorage.setItem("attempts", attempts);
-
-      if (watched && attempts >= 3) {
-        alert("Your unlock code is: 1234-5678");
-      } else if (!watched && attempts >= 6) {
-        alert("You must watch the video for at least 2 minutes to unlock the code.");
-      } else {
-        window.location.href = directLink;
-      }
-    };
-
-    // Decide what to show
-    if (localStorage.getItem("firstClick") === "true") {
-      showVideoPlayer();
+// Unlock button logic
+unlockBtn.addEventListener("click", function() {
+    unlockClicks++;
+    if (!hasWatched2Min) {
+        if (unlockClicks <= 4) {
+            window.open(adLink, "_blank");
+        } else {
+            warningMsg.style.display = "block";
+        }
     } else {
-      showThumbnail();
+        if (unlockClicks <= 2) {
+            window.open(adLink, "_blank");
+        } else {
+            codeBox.style.display = "block";
+            warningMsg.style.display = "none";
+        }
     }
-  </script>
+});
+</script>
 
 </body>
-  </html>
+</html>
