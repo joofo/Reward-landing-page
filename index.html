@@ -1,177 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watch Video to Unlock Code</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn to Earn Online</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: #fff;
-        margin: 0;
-        padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    h2 {
-        background: #000;
-        color: #fff;
-        padding: 10px;
-        margin: 0;
-        font-size: 18px;
+    .container {
+      max-width: 400px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-    video {
-        width: 90%;
-        max-width: 600px;
-        margin: 10px auto;
-        display: block;
-        border: 3px solid #ccc;
-        border-radius: 8px;
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
     }
-    .ads {
-        margin: 15px 0;
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
     }
-    .unlock-btn {
-        padding: 12px 20px;
-        font-size: 16px;
-        background: red;
-        color: white;
-        border: none;
-        cursor: pointer;
-        margin: 20px 0;
+    .cta-btn {
+      display: inline-block;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 15px 35px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s;
     }
-    .code-box {
-        font-size: 20px;
-        font-weight: bold;
-        color: green;
-        margin-top: 20px;
+    .cta-btn:hover {
+      background: #ffaa00;
     }
-    .warning {
-        color: red;
-        font-size: 16px;
-        margin-top: 15px;
-    }
-</style>
+  </style>
 </head>
 <body>
-
-<!-- Top Banner -->
-<div class="ads">
-<script type="text/javascript">
-	atOptions = {
-		'key' : '657dc637906c39e1c4c2a1ca6f9a5cf3',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/657dc637906c39e1c4c2a1ca6f9a5cf3/invoke.js"></script>
-</div>
-
-<h2>Watch This Video to Unlock the Code</h2>
-<video id="promoVideo" controls poster="">
-    <source src="https://www.dropbox.com/scl/fi/xvgo2nyemh4c7xe2arjt3/videoplayback-0.mp4?rlkey=w3brx7ykc0rxbug4fng3p668j&st=o5qj0bph&dl=1" type="video/mp4">
-    Your browser does not support HTML5 video.
-</video>
-
-<!-- Three Banners Below Video -->
-<div class="ads">
-<script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-</div>
-
-<div class="ads">
-<script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-</div>
-
-<div class="ads">
-<script type="text/javascript">
-	atOptions = {
-		'key' : '00e249d3ee59a09383e0915f0c6f83d1',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00e249d3ee59a09383e0915f0c6f83d1/invoke.js"></script>
-</div>
-
-<!-- Unlock Button -->
-<button class="unlock-btn" id="unlockBtn">UNLOCK CODE</button>
-
-<!-- Code Display -->
-<div class="code-box" id="codeBox" style="display:none;">
-    ✅ Your Code: <span style="color:blue;">ABC123XYZ</span>
-</div>
-
-<div class="warning" id="warningMsg" style="display:none;">
-    ⚠ You must watch the video for at least 2 minutes to unlock the code!
-</div>
-
-<script>
-let video = document.getElementById("promoVideo");
-let unlockBtn = document.getElementById("unlockBtn");
-let codeBox = document.getElementById("codeBox");
-let warningMsg = document.getElementById("warningMsg");
-
-let adLink = "https://www.profitableratecpm.com/mm0bgs1fhb?key=02203ef30c691765b47698e0bc1996e1";
-let hasWatched2Min = false;
-let unlockClicks = 0;
-let videoClicks = 0;
-
-// Track first click on video
-video.addEventListener("play", function(e) {
-    if (videoClicks === 0) {
-        window.open(adLink, "_blank");
-        video.pause();
-    }
-    videoClicks++;
-});
-
-// Track 2 minutes watch time
-video.addEventListener("timeupdate", function() {
-    if (video.currentTime >= 120) {
-        hasWatched2Min = true;
-    }
-});
-
-// Unlock button logic
-unlockBtn.addEventListener("click", function() {
-    unlockClicks++;
-    if (!hasWatched2Min) {
-        if (unlockClicks <= 4) {
-            window.open(adLink, "_blank");
-        } else {
-            warningMsg.style.display = "block";
-        }
-    } else {
-        if (unlockClicks <= 2) {
-            window.open(adLink, "_blank");
-        } else {
-            codeBox.style.display = "block";
-            warningMsg.style.display = "none";
-        }
-    }
-});
-</script>
-
+  <div class="container">
+    <h1>📱 Learn How to Earn Money Online</h1>
+    <p>Simple lessons. Real strategies. Start your journey today!</p>
+    <a class="cta-btn" href="https://play.google.com/store/apps/details?id=app.fxroyalepro.com">Install App</a>
+  </div>
 </body>
 </html>
